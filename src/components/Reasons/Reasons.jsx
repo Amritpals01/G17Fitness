@@ -11,7 +11,7 @@ const Reasons = () => {
     <div className="left-r">
         <img src={image1} alt="" />
         <img src={image2} alt="" />
-        <img src={image3} alt="" />
+        
         
     </div>
     <div className="right-r">
