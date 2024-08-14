@@ -15,7 +15,7 @@ export const plansData = [
     features: [
       "Free Merchandises",
       "1 Free Video consultaion to Head coach",
-      "Access to The WorkoutApp",
+      "Access to The Workout App",
     ],
   },
   {
@@ -34,7 +34,7 @@ export const plansData = [
     features: [
       "Free  Merchandises",
       "5 Free Video consultaions to Head coach",
-      "Access to The WorkoutApp",
+      "Access to The Workout App",
     ],
   },
   {
@@ -53,7 +53,7 @@ export const plansData = [
     features: [
       "Free  Merchandises",
       "12 Free Video consultaions to Head coach",
-      "Access to The WorkoutApp",
+      "Access to The Workout App",
     ],
   },
 ];

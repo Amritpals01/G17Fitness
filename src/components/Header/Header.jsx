@@ -74,6 +74,14 @@ const Header = () => {
               smooth={true}
               >Testimonials</Link>
             </li>
+            <li>
+            <Link onClick={() => setMenuOpened(false)}
+              to="join-us"
+              span={true}
+              smooth={true}
+              >Join Now</Link>
+            </li>
+            
           </ul>
         )}
       </div>

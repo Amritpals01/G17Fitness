@@ -123,6 +123,7 @@
  {
   .hero{
     flex-direction: column;
+    transition: all 1s ease;
   }
   .hero-blur{
     width: 14rem;

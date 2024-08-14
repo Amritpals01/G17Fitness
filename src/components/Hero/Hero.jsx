@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
 const Hero = () => {
-  const transition = { type: "spring", duration: 3 };
+  const transition = { type: "spring", duration: 3 , stiffness: 30, damping: 15, mass: 1,};
   return (
     <div className="hero" id="home">
       <div className="blur hero-blur"></div>
@@ -41,7 +41,7 @@ const Hero = () => {
         <div className="figures">
           <div>
             <span>
-             <NumberCounter  end={4} start={0} delay='1' preFix='+'/>
+             <NumberCounter  end={4} start={0} delay='1' preFix='+' duration={3}/>
               </span>
             <span>Year Experiance</span>
           </div>

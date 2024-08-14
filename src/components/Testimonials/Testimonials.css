@@ -10,6 +10,7 @@
     flex-direction: column;
     text-transform: uppercase;
     color: white;
+    
 }
 .left-t>:nth-child(1){
     color: var(--navyblue);
@@ -24,7 +25,7 @@
 .left-t>:nth-child(4){
     text-transform: none;
     text-align: justify;
-    letter-spacing: 1px;
+    letter-spacing: 0.1px;
     line-height: 40px;
 }
 .right-t{
@@ -75,6 +76,7 @@
     }
     .left-t>:nth-child(2),.left-t>:nth-child(3){
         font-size: xx-large;
+        letter-spacing: 0.1px;
     }
     .right-t{
         display: flex;
