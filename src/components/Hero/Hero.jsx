@@ -7,7 +7,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
 const Hero = () => {
-  const transition = { type: "spring", duration: 2, stiffness: 50, damping: 20 };
+  // Check if mobile for simpler animations
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <div className="hero" id="home">
@@ -16,62 +17,30 @@ const Hero = () => {
         <Header />
         
         {/* Badge */}
-        <motion.div 
-          className="the-best-ad"
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            initial={{ left: "238px" }}
-            whileInView={{ left: "8px" }}
-            transition={transition}
-            viewport={{ once: true }}
-          ></motion.div>
+        <div className="the-best-ad">
+          <div className="badge-slider"></div>
           <span>The best fitness club in the town</span>
-        </motion.div>
+        </div>
 
         {/* Hero Text */}
         <div className="hero-text">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <span className="stroke-text">Shape </span>
             <span>Your</span>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
+          </div>
+          <div>
             <span>Ideal Body</span>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          </div>
+          <div>
             <span>
               Transform your physique with our expert trainers and state-of-the-art facilities. 
               Join us and start your journey to a healthier, stronger you.
             </span>
-          </motion.div>
+          </div>
         </div>
 
         {/* Stats */}
-        <motion.div 
-          className="figures"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
+        <div className="figures">
           <div>
             <span>
               <NumberCounter end={4} start={0} delay='1' preFix='+' duration={2}/>
@@ -90,16 +59,10 @@ const Hero = () => {
             </span>
             <span>Fitness Programs</span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Buttons */}
-        <motion.div 
-          className="hero-buttons"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
+        <div className="hero-buttons">
           <button className="btn">
             <Link to="join-us" spy={true} smooth={true}>
               Get Started
@@ -110,19 +73,15 @@ const Hero = () => {
               Learn More
             </Link>
           </button>
-        </motion.div>
+        </div>
       </div>
 
       <div className="right-h">
         <div className="hero-image-back"></div>
-        <motion.img 
+        <img 
           src={hero_image} 
           alt="Hero" 
           className="hero-image"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         />
       </div>
     </div>

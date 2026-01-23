@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import './Join.css'
 import emailjs from '@emailjs/browser'
-import { motion } from 'framer-motion'
 
 const Join = () => {
   const form = useRef();
@@ -26,13 +25,7 @@ const Join = () => {
 
   return (
     <div className="Join" id='join-us'>
-      <motion.div 
-        className="left-j"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div className="left-j">
         <hr />
         <div>
           <span className='stroke-text'>Ready To</span>
@@ -42,15 +35,9 @@ const Join = () => {
           <span>Your Body</span>
           <span className='stroke-text'> With Us?</span>
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div 
-        className="right-j"
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div className="right-j">
         <form ref={form} className="email-container" onSubmit={sendEmail}>
           <input 
             type="email" 
@@ -62,7 +49,7 @@ const Join = () => {
             {submitted ? '✓ Joined!' : 'Join Now'}
           </button>
         </form>
-      </motion.div>
+      </div>
     </div>
   )
 }

@@ -5,7 +5,6 @@
   position: relative;
   z-index: 1;
   padding-bottom: 4rem;
-  overflow: visible;
 }
 
 .left-h {
@@ -44,7 +43,7 @@
   color: var(--white);
 }
 
-.the-best-ad > div {
+.badge-slider {
   position: absolute;
   background: var(--gradient-primary);
   width: 5.5rem;
@@ -53,6 +52,12 @@
   border-radius: 50px;
   z-index: 1;
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from { left: 238px; opacity: 0; }
+  to { left: 8px; opacity: 1; }
 }
 
 /* Right section */
@@ -177,14 +182,9 @@
   right: 2rem;
   transform: translateY(-50%);
   width: 28rem;
+  height: auto;
   filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.2));
   z-index: 3;
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(-50%); }
-  50% { transform: translateY(calc(-50% - 15px)); }
 }
 
 /* Decorative elements */
@@ -249,8 +249,10 @@
     padding: 0.8rem 1.2rem;
   }
 
-  .the-best-ad > div {
+  .badge-slider {
     width: 4rem;
+    animation: none;
+    left: 8px;
   }
 
   .hero-text {
@@ -312,8 +314,8 @@
   .right-h {
     position: relative;
     width: 100%;
-    min-height: 300px;
-    margin-top: 2rem;
+    min-height: 280px;
+    margin-top: 1rem;
   }
 
   .hero-image {
@@ -323,7 +325,6 @@
     top: auto;
     right: auto;
     transform: none;
-    animation: none;
   }
 
   .hero-image-back {

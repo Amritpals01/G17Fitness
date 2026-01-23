@@ -35,7 +35,8 @@
 }
 
 /* Review text */
-.left-t > :nth-child(4) {
+.left-t > :nth-child(4),
+.review-text {
   text-transform: none;
   text-align: left;
   letter-spacing: 0.3px;
@@ -48,6 +49,7 @@
   border-left: 4px solid;
   border-image: var(--gradient-primary) 1;
   position: relative;
+  min-height: 120px;
 }
 
 .left-t > :nth-child(4)::before {

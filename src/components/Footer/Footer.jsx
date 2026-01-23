@@ -5,7 +5,6 @@ import Instagram from '../../assets/instagram.png'
 import Github from '../../assets/github.png'
 import Linkedin from '../../assets/linkedin.png'
 import { Link } from 'react-scroll'
-import { motion } from 'framer-motion'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,13 +12,7 @@ const Footer = () => {
   return (
     <div className="Footer-container">
       <hr />
-      <motion.div 
-        className="footer"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div className="footer">
         {/* Logo & Tagline */}
         <div className="footer-logo">
           <img src={Logo} alt="G17 Fitness" />
@@ -52,7 +45,7 @@ const Footer = () => {
         <div className="footer-copyright">
           © {currentYear} <span>G17 Fitness</span>. All Rights Reserved.
         </div>
-      </motion.div>
+      </div>
 
       <div className="blur blur-f-1"></div>
     </div>
