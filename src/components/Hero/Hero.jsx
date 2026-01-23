@@ -7,8 +7,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
 const Hero = () => {
-  const transition = { type: "spring", duration: 3, stiffness: 30, damping: 15, mass: 1 };
-  const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+  const transition = { type: "spring", duration: 2, stiffness: 50, damping: 20 };
 
   return (
     <div className="hero" id="home">
@@ -19,64 +18,75 @@ const Hero = () => {
         {/* Badge */}
         <motion.div 
           className="the-best-ad"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
           <motion.div
             initial={{ left: "238px" }}
             whileInView={{ left: "8px" }}
             transition={transition}
+            viewport={{ once: true }}
           ></motion.div>
           <span>The best fitness club in the town</span>
         </motion.div>
 
         {/* Hero Text */}
-        <motion.div 
-          className="hero-text"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            visible: { transition: { staggerChildren: 0.2 } }
-          }}
-        >
-          <motion.div variants={fadeIn} transition={{ duration: 0.6 }}>
+        <div className="hero-text">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
+          >
             <span className="stroke-text">Shape </span>
             <span>Your</span>
           </motion.div>
-          <motion.div variants={fadeIn} transition={{ duration: 0.6 }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
             <span>Ideal Body</span>
           </motion.div>
-          <motion.div variants={fadeIn} transition={{ duration: 0.6 }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <span>
               Transform your physique with our expert trainers and state-of-the-art facilities. 
               Join us and start your journey to a healthier, stronger you.
             </span>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Stats */}
         <motion.div 
           className="figures"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
           <div>
             <span>
-              <NumberCounter end={4} start={0} delay='1' preFix='+' duration={3}/>
+              <NumberCounter end={4} start={0} delay='1' preFix='+' duration={2}/>
             </span>
             <span>Years Experience</span>
           </div>
           <div>
             <span>
-              <NumberCounter end={100} start={20} delay='4' preFix='+'/>
+              <NumberCounter end={100} start={20} delay='2' preFix='+'/>
             </span>
             <span>Members Joined</span>
           </div>
           <div>
             <span>
-              <NumberCounter end={50} start={10} delay='4' preFix='+'/>
+              <NumberCounter end={50} start={10} delay='2' preFix='+'/>
             </span>
             <span>Fitness Programs</span>
           </div>
@@ -85,9 +95,10 @@ const Hero = () => {
         {/* Buttons */}
         <motion.div 
           className="hero-buttons"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
           <button className="btn">
             <Link to="join-us" spy={true} smooth={true}>
@@ -108,9 +119,10 @@ const Hero = () => {
           src={hero_image} 
           alt="Hero" 
           className="hero-image"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         />
       </div>
     </div>

@@ -44,7 +44,9 @@
   flex-direction: column;
   gap: 8rem;
   overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Animated background grid */

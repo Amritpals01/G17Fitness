@@ -5,6 +5,7 @@
   position: relative;
   z-index: 1;
   padding-bottom: 4rem;
+  overflow: visible;
 }
 
 .left-h {
