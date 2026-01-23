@@ -67,6 +67,16 @@
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn:active {
+  transform: translateY(-1px);
 }
 
 /* Secondary button style */
@@ -76,7 +86,11 @@
   color: var(--primary);
 }
 
-/* Blur effect elements - simplified */
+.btn-secondary:hover {
+  background: rgba(0, 212, 255, 0.1);
+}
+
+/* Blur effect elements */
 .blur {
   background: var(--secondary);
   position: absolute;
@@ -91,6 +105,18 @@
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 /* Responsive base */
