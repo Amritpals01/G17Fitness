@@ -5,7 +5,6 @@
   --primary-dark: #00a8cc;
   --secondary: #7c3aed;
   --accent: #f43f5e;
-  --accent-glow: rgba(244, 63, 94, 0.4);
   
   /* Neutrals */
   --white: #ffffff;
@@ -21,16 +20,13 @@
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
   --gradient-secondary: linear-gradient(135deg, #7c3aed 0%, #f43f5e 100%);
-  --gradient-dark: linear-gradient(180deg, #0a0a12 0%, #111827 100%);
   --gradient-card: linear-gradient(145deg, rgba(124, 58, 237, 0.15) 0%, rgba(0, 212, 255, 0.05) 100%);
-  --gradient-glow: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
   
   /* Shadows */
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.4);
   --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
-  --shadow-glow-accent: 0 0 30px rgba(244, 63, 94, 0.3);
   
   /* Typography */
   --font-display: 'Bebas Neue', sans-serif;
@@ -42,47 +38,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 8rem;
-  overflow-x: hidden;
-  overflow-y: auto;
+  gap: 6rem;
   position: relative;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Animated background grid */
-.App::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Ambient glow effects */
-.App::after {
-  content: '';
-  position: fixed;
-  top: 20%;
-  left: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  animation: floatGlow 20s ease-in-out infinite;
-}
-
-@keyframes floatGlow {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(100px, 50px) scale(1.1); }
-  66% { transform: translate(-50px, -30px) scale(0.9); }
 }
 
 /* Global text styles */
@@ -103,40 +60,13 @@
   font-size: 0.95rem;
   border: none;
   border-radius: 8px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--white);
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-glow);
-}
-
-.btn:hover::before {
-  left: 100%;
-}
-
-.btn:active {
-  transform: translateY(-1px);
 }
 
 /* Secondary button style */
@@ -146,67 +76,30 @@
   color: var(--primary);
 }
 
-.btn-secondary:hover {
-  background: rgba(0, 212, 255, 0.1);
-  box-shadow: var(--shadow-glow);
-}
-
-/* Blur effect elements */
+/* Blur effect elements - simplified */
 .blur {
-  background: var(--gradient-primary);
+  background: var(--secondary);
   position: absolute;
   border-radius: 50%;
-  filter: blur(150px);
+  filter: blur(120px);
   z-index: 0;
-  opacity: 0.15;
+  opacity: 0.1;
   pointer-events: none;
-}
-
-/* Section titles */
-.section-title {
-  font-family: var(--font-display);
-  font-size: 3.5rem;
-  letter-spacing: 3px;
-  color: var(--white);
-  text-align: center;
 }
 
 /* Smooth link transitions */
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-/* Animation utilities */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
 }
 
 /* Responsive base */
 @media screen and (max-width: 768px) {
   .App {
-    gap: 5rem;
+    gap: 4rem;
   }
   
-  .section-title {
-    font-size: 2.5rem;
+  .blur {
+    display: none;
   }
 }
