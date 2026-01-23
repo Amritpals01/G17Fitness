@@ -44,6 +44,13 @@
   left: 8px;
   border-radius: 50px;
   z-index: 1;
+  animation: slideLoop 3s ease-in-out infinite;
+}
+
+@keyframes slideLoop {
+  0% { left: calc(100% - 6rem); }
+  50% { left: 8px; }
+  100% { left: calc(100% - 6rem); }
 }
 
 /* Right section */
@@ -192,6 +199,13 @@
 
   .badge-slider {
     width: 4rem;
+    animation: slideLoopMobile 3s ease-in-out infinite;
+  }
+
+  @keyframes slideLoopMobile {
+    0% { left: calc(100% - 4.5rem); }
+    50% { left: 8px; }
+    100% { left: calc(100% - 4.5rem); }
   }
 
   .hero-text {
