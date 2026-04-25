@@ -11,6 +11,7 @@ import Testimonials from './components/Testimonials/Testimonials';
 function App() {
   return (
     <div className="App">
+          <div className="bg-flow" aria-hidden="true" />
           <Hero/>
           <Programs/>
           <Reasons/>

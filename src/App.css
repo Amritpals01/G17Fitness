@@ -40,6 +40,80 @@
   flex-direction: column;
   gap: 6rem;
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.App > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ambient animated background layers */
+.App::before,
+.App::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.App::before {
+  inset: -20% -10%;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(0, 212, 255, 0.32) 0%, transparent 42%),
+    radial-gradient(circle at 80% 15%, rgba(124, 58, 237, 0.34) 0%, transparent 43%),
+    radial-gradient(circle at 75% 80%, rgba(244, 63, 94, 0.24) 0%, transparent 38%),
+    radial-gradient(circle at 30% 85%, rgba(56, 189, 248, 0.22) 0%, transparent 40%);
+  filter: blur(1px) saturate(130%);
+  transform-origin: center;
+  animation: auroraDrift 13s linear infinite;
+}
+
+.App::after {
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.065) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.65) 0%, transparent 78%);
+  opacity: 0.5;
+  animation: gridShift 14s linear infinite;
+}
+
+.App::selection {
+  background: rgba(124, 58, 237, 0.35);
+}
+
+.App .bg-flow {
+  position: absolute;
+  inset: -15% -15%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    conic-gradient(
+      from 90deg at 50% 50%,
+      rgba(0, 212, 255, 0.2),
+      rgba(124, 58, 237, 0.18),
+      rgba(244, 63, 94, 0.16),
+      rgba(0, 212, 255, 0.2)
+    );
+  filter: blur(70px);
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  animation: colorFlow 16s linear infinite;
+}
+
+.App .bg-flow::before {
+  content: '';
+  position: absolute;
+  inset: 10% 12%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(0, 212, 255, 0.18) 0%, rgba(0, 212, 255, 0) 62%),
+    radial-gradient(circle at 70% 40%, rgba(124, 58, 237, 0.16) 0%, rgba(124, 58, 237, 0) 60%);
+  filter: blur(35px);
+  animation: pulseGlow 5s ease-in-out infinite;
 }
 
 /* Global text styles */
@@ -119,10 +193,82 @@ a {
   to { opacity: 1; transform: translateX(0); }
 }
 
+@keyframes auroraDrift {
+  0% {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(2%, -1%, 0) scale(1.07);
+  }
+  50% {
+    transform: translate3d(4%, 2%, 0) scale(1.1);
+  }
+  75% {
+    transform: translate3d(-1%, 4%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+}
+
+@keyframes gridShift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-70px, -70px, 0);
+  }
+}
+
+@keyframes colorFlow {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.12);
+    opacity: 0.75;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.45;
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.95;
+  }
+}
+
 /* Responsive base */
 @media screen and (max-width: 768px) {
   .App {
     gap: 4rem;
+  }
+
+  .App::before {
+    inset: -35% -25%;
+    opacity: 0.95;
+    animation-duration: 6s;
+  }
+
+  .App::after {
+    background-size: 44px 44px;
+    opacity: 0.34;
+    animation-duration: 7s;
+  }
+
+  .App .bg-flow {
+    inset: -35% -35%;
+    opacity: 0.46;
+    animation-duration: 8s;
   }
   
   .blur {

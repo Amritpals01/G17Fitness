@@ -1,9 +1,19 @@
 import React from 'react'
 import './Reasons.css'
-import image1 from '../../assets/image1.png'
-import image2 from '../../assets/image2.png'
-import nb from '../../assets/nb.png'
+import reason1 from '../../assets/reason-choose-1.png'
+import reason2 from '../../assets/reason-choose-2.png'
+import reason3 from '../../assets/reason-choose-3.png'
+import reason4 from '../../assets/reason-choose-4.png'
+import reason5 from '../../assets/reason-choose-5.png'
 import tick from '../../assets/tick.png'
+
+const galleryImages = [
+  { src: reason1, alt: 'Coach and athlete with competition medals' },
+  { src: reason2, alt: 'Client fitness transformation before and after' },
+  { src: reason3, alt: 'Client progress comparison in gym' },
+  { src: reason4, alt: '24 week body transformation results' },
+  { src: reason5, alt: 'Body recomposition before and after' }
+]
 
 const Reasons = () => {
   const reasons = [
@@ -16,8 +26,9 @@ const Reasons = () => {
   return (
     <div className="Reasons" id='reasons'>
       <div className="left-r">
-        <img src={image1} alt="Fitness" />
-        <img src={image2} alt="Training" />
+        {galleryImages.map(({ src, alt }) => (
+          <img key={alt} src={src} alt={alt} />
+        ))}
       </div>
 
       <div className="right-r">
@@ -37,10 +48,6 @@ const Reasons = () => {
           ))}
         </div>
 
-        <span className="partners-label">OUR PARTNERS</span>
-        <div className='partners'>
-          <img src={nb} alt="New Balance" />
-        </div>
       </div>
     </div>
   )
