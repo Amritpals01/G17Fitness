@@ -13,7 +13,7 @@ export const plansData = [
     name: "3 MONTHS PLAN",
     price: "310",
     features: [
-      "Free Merchandises",
+      "Diet and Nutrition",
       "1 Free Video consultaion to Head coach",
       "Access to The Workout App",
     ],
@@ -32,7 +32,7 @@ export const plansData = [
     name: "6 MONTHS PLAN",
     price: "550",
     features: [
-      "Free  Merchandises",
+      "Diet and Nutrition",
       "5 Free Video consultaions to Head coach",
       "Access to The Workout App",
     ],
@@ -51,7 +51,7 @@ export const plansData = [
     name: "1 YEAR PLAN",
     price: "1000",
     features: [
-      "Free  Merchandises",
+      "Diet and Nutrition",
       "12 Free Video consultaions to Head coach",
       "Access to The Workout App",
     ],
