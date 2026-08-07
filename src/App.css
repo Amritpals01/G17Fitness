@@ -248,9 +248,15 @@ a {
 }
 
 /* Responsive base */
+@media screen and (max-width: 1024px) {
+  .App {
+    gap: 5rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .App {
-    gap: 4rem;
+    gap: 3.5rem;
   }
 
   .App::before {
@@ -270,8 +276,30 @@ a {
     opacity: 0.46;
     animation-duration: 8s;
   }
-  
+
   .blur {
     display: none;
+  }
+
+  .btn {
+    padding: 0.85rem 1.4rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.8px;
+  }
+
+  .stroke-text {
+    -webkit-text-stroke-width: 1px;
+    letter-spacing: 1px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App {
+    gap: 2.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
   }
 }

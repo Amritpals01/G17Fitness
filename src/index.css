@@ -6,7 +6,17 @@
   box-sizing: border-box;
 }
 
-html, body {
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -15,6 +25,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #0a0a12;
+  min-height: 100%;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  max-width: 100%;
 }
 
 /* Custom scrollbar */
@@ -29,4 +55,17 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #7c3aed;
   border-radius: 10px;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
 }

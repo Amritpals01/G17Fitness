@@ -4,6 +4,8 @@
   padding: 4rem 2rem;
   position: relative;
   z-index: 1;
+  width: 100%;
+  align-items: center;
 }
 
 /* Left content */
@@ -14,6 +16,7 @@
   flex-direction: column;
   text-transform: uppercase;
   color: var(--white);
+  min-width: 0;
 }
 
 .left-t > :nth-child(1) {
@@ -29,9 +32,10 @@
 .left-t > :nth-child(2),
 .left-t > :nth-child(3) {
   font-weight: bold;
-  font-size: 3.5rem;
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
   font-family: var(--font-display);
   letter-spacing: 2px;
+  line-height: 1.1;
 }
 
 /* Review text */
@@ -52,7 +56,8 @@
   min-height: 120px;
 }
 
-.left-t > :nth-child(4)::before {
+.left-t > :nth-child(4)::before,
+.review-text::before {
   content: '"';
   position: absolute;
   top: -20px;
@@ -88,9 +93,11 @@
   flex: 1;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 400px;
+  min-width: 0;
 }
 
 /* Background decorations */
@@ -152,6 +159,7 @@
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  box-sizing: content-box;
 }
 
 .arrows > img:hover {
@@ -163,17 +171,21 @@
 
 /* Responsive */
 @media screen and (max-width: 1024px) {
-  .left-t > :nth-child(2),
-  .left-t > :nth-child(3) {
-    font-size: 2.5rem;
+  .Testimonials {
+    gap: 2rem;
+    padding: 3rem 1.25rem;
   }
 
   .right-t > :nth-child(1),
   .right-t > :nth-child(2),
   .right-t > img {
-    width: 15rem;
-    height: 18rem;
-    right: 2rem;
+    width: 14rem;
+    height: 17rem;
+    right: 1.5rem;
+  }
+
+  .right-t {
+    min-height: 360px;
   }
 }
 
@@ -181,43 +193,64 @@
   .Testimonials {
     flex-direction: column;
     padding: 2rem 1rem;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .left-t {
     align-items: center;
     text-align: center;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .left-t > :nth-child(1) {
+    font-size: 0.95rem;
   }
 
   .left-t > :nth-child(2),
   .left-t > :nth-child(3) {
-    font-size: 2rem;
+    letter-spacing: 1.25px;
   }
 
-  .left-t > :nth-child(4) {
+  .left-t > :nth-child(4),
+  .review-text {
     text-align: center;
-    padding: 1.5rem 1rem;
-    font-size: 0.95rem;
-    line-height: 1.8;
+    padding: 1.75rem 1rem 1.25rem;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    width: 100%;
+    min-height: auto;
+    border-left: none;
+    border-image: none;
+    border-top: 3px solid var(--primary);
   }
 
-  .left-t > :nth-child(4)::before {
+  .left-t > :nth-child(4)::before,
+  .review-text::before {
     left: 50%;
     transform: translateX(-50%);
+    font-size: 3.5rem;
+    top: -12px;
+  }
+
+  .left-t > :nth-child(5) {
+    font-size: 0.9rem;
   }
 
   .right-t {
-    min-height: 350px;
+    min-height: auto;
+    width: 100%;
+    gap: 1.25rem;
   }
 
-  .right-t > div {
+  .right-t > div:not(.arrows) {
     display: none;
   }
 
   .right-t > img {
     position: relative;
-    width: 16rem;
-    height: 20rem;
+    width: min(16rem, 72vw);
+    height: min(20rem, 90vw);
     top: auto;
     right: auto;
   }
@@ -227,6 +260,38 @@
     bottom: auto;
     left: auto;
     transform: none;
-    margin-top: 1.5rem;
+    margin-top: 0;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .arrows > img {
+    width: 1.4rem;
+    height: 1.4rem;
+    padding: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Testimonials {
+    padding: 1.5rem 0.85rem;
+  }
+
+  .left-t > :nth-child(2),
+  .left-t > :nth-child(3) {
+    font-size: clamp(1.5rem, 8vw, 1.9rem);
+    letter-spacing: 1px;
+  }
+
+  .left-t > :nth-child(4),
+  .review-text {
+    font-size: 0.85rem;
+    padding: 1.5rem 0.85rem 1.1rem;
+    line-height: 1.6;
+  }
+
+  .right-t > img {
+    width: min(14rem, 78vw);
+    height: min(17.5rem, 95vw);
   }
 }
